@@ -146,16 +146,3 @@ nav label:hover {
     order: -1;
   }
 }
-
-/* Ещё немного адаптивности, если уж сильно мелкий экран */
-@media screen and (max-width: 450px) {
-  /* При нажатии на чекбокс "Меню сайта", изменяем его label и элементы меню */
-  input[type="checkbox"]:checked ~ label + ul {
-    flex-direction: column; /* В колонку, чтобы элементы не перекрывали друг друга */
-  }
-
-  /* Меняем отображение Inputs для поиска */
-  .headerInputsSearch {
-    flex-direction: column;
-  }
-}
