@@ -1,0 +1,161 @@
+/* Шрифты и стартовая анимация для всей страницы */
+* {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: medium;
+  transition: 1s; /* Анимация */
+}
+
+.pageWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 1em 1em 1em 1em;
+  background: darkgray;
+  display: flex;
+  flex-wrap: wrap-reverse; /* Чтобы перекинуть поиск и кнопки вверх при уменьшении размеров страницы */
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* Список в header как inline-block */
+header li {
+  display: inline-block;
+}
+
+/* Элементы списка в header как block */
+header a {
+  display: block;
+  padding: 1em 1em;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+/* Чёрный hover для элементов списка */
+header a:hover {
+  background: black;
+}
+
+/* Input для поиска */
+.headerInputsSearch {
+  display: flex;
+  flex-direction: row;
+  margin-left: 4em;
+}
+
+/* Input для авторизации/регистрации */
+.headerInputsSignIn {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2em;
+}
+
+/* Подвал (footer) */
+footer {
+  text-align: center; /* Текст по центру */
+  margin-top: 15px;
+  font-size: 0.8em;
+  padding: 1em;
+  background-color: black;
+  color: rgb(204, 204, 204);
+  clear: both;
+}
+
+/* 
+  По умолчанию не отображаем кнопку (чекбокс) "Меню сайта". 
+  Отображаем его только после медиазапроса для мобилок 
+*/
+input[type="checkbox"] {
+  display: none;
+}
+nav label {
+  display: none;
+  border: 1px solid black;
+  background: black;
+  color: white;
+  padding: 1em;
+  margin-top: 1em;
+  cursor: pointer; /* Курсор при наведении */
+}
+nav label:hover {
+  color: #3794ff;
+}
+
+/* Контейнер для элементов на главной форме */
+.flexContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Колонки контейнера */
+.flexColumnRight,
+.flexColumnLeft,
+.flexColumnCenter {
+  border: 1px solid black;
+  padding: 7px;
+}
+
+/* Адаптивность под мобилки (предположительно) */
+@media screen and (max-width: 680px) {
+  * {
+    transition: 1s;
+  }
+  header {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  nav label {
+    display: block; /* Делаем чекбокс меню (его label) видимым */
+    text-align: center; /* Чтобы текст был по середине, когда мы нажмём на чекбокс */
+  }
+
+  nav > ul {
+    display: none; /* По умолчанию скрываем элементы меню */
+  }
+
+  /* При нажатии на чекбокс "Меню сайта", изменяем его label и элементы меню */
+  input[type="checkbox"]:checked ~ label + ul {
+    padding: 0; /* Убираем внутренние отступы */
+    margin: auto; /* Внешние отступы */
+    display: flex;
+    flex-direction: column; /* В колонку */
+    text-align: center; /* Текст по центру по вертикали */
+  }
+
+  /* Меняем отображение Inputs для поиска и кнопок авторизации/регистрации */
+  .headerInputsSearch,
+  .headerInputsSignIn {
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 1em;
+  }
+
+  /* Теперь наш контейнер wrap */
+  .flexContainer {
+    flex-wrap: wrap;
+  }
+
+  /* Выводим на экран первой центральную колонку */
+  .flexColumnCenter {
+    order: -1;
+  }
+}
+
+/* Ещё немного адаптивности, если уж сильно мелкий экран */
+@media screen and (max-width: 450px) {
+  /* При нажатии на чекбокс "Меню сайта", изменяем его label и элементы меню */
+  input[type="checkbox"]:checked ~ label + ul {
+    flex-direction: column; /* В колонку, чтобы элементы не перекрывали друг друга */
+  }
+
+  /* Меняем отображение Inputs для поиска */
+  .headerInputsSearch {
+    flex-direction: column;
+  }
+}
