@@ -2,7 +2,7 @@
 * {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: medium;
-  transition: 1s; /* Анимация */
+  /* transition: 1s; */
 }
 
 .pageWrapper {
@@ -17,7 +17,6 @@ header {
   flex-wrap: wrap-reverse; /* Чтобы перекинуть поиск и кнопки вверх при уменьшении размеров страницы */
   align-items: center;
   justify-content: center;
-
 }
 
 /* Список в header как inline-block */
@@ -101,9 +100,12 @@ nav label:hover {
 
 /* Адаптивность под мобилки (предположительно) */
 @media screen and (max-width: 680px) {
+  /*
   * {
-    transition: 1s;
+    transition: 1s; 
   }
+  */
+  
   header {
     flex-direction: column;
     flex-wrap: wrap;
